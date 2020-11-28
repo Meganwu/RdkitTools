@@ -3,15 +3,10 @@ import numpy as np
 from pymol import *
 import rdkit
 
-    
-
-template1=Chem.MolFromSmiles('CS(=O)(NC1=CC=CC=C1)=O')   
-template2=Chem.MolFromSmiles('CS(=O)(N)=O')
-
-
 
 def FindComStr(mols):
     res=rdFMCS.FindMCS(mols,bondCompare=rdFMCS.BondCompare.CompareAny).smartsString
+    res=Chem.MolFromSmarts(res)
     return res
 
 def addFig(fig, sub_fig, num_cols=4):
@@ -62,8 +57,8 @@ def drawMols(mols, saved_dir, legends=None, num_cols=5, batch_size=200, saved_fo
     # batch_size = 12
     batch_num = math.ceil(len(mols) / batch_size)
     if legends == None:
-#       legends = ["mol_{}".format(i + 1) for i in range(len(mols))]
-        legends = ['E'+str(number[i])+'\n'+str(IC50[i])+'\n'+dockname[i] for i in range(len(mols))]
+        legends = ["mol_{}".format(i + 1) for i in range(len(mols))]
+#       legends = ['E'+str(number[i])+'\n'+str(IC50[i])+'\n'+dockname[i] for i in range(len(mols))]
     for b in range(batch_num):
         plt.clf()
         fig = plt.figure()
