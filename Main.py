@@ -36,6 +36,10 @@ import eventlet
 
 import sys
 
+from ShowFigure import *
+from TranSmiToPdb import *
+from DealTimeOut import *
+
 if __name__ == '__main__':
 #    filename=sys.argv[1]
      filename='1116he.xlsx'   ###
