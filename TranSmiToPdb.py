@@ -12,7 +12,7 @@ from pandas import Series, DataFrame
 import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.style.use('ggplot')
-def readsmi(filename, smicolumn='SMILES'):
+def GetSmi(filename, smicolumn='SMILES'):
     try:
         smiles=pd.read_excel(filename, encoding = 'utf8')
 #       smiles=pd.read_table(filename, encoding = 'utf8')
