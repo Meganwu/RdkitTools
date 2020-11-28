@@ -26,6 +26,17 @@ def addFig(fig, sub_fig, num_cols=4):
     left = col_loc * width + offset
     bottom = row_loc * height + offset
     ax = sub_fig.gca()
+#   ax.plot(color='black')
+#   ax.axhline(0, color='black')
+    ax.spines['top'].set_color('black')  # 设置上‘脊梁’为红色
+    ax.spines['right'].set_color('black')  # 设置上‘脊梁’为无色
+    ax.spines['left'].set_color('black')
+    ax.spines['bottom'].set_color('black')
+    ax.spines['bottom'].set_linewidth(width)
+    ax.spines['left'].set_linewidth(width)
+    ax.spines['top'].set_linewidth(width)
+    ax.spines['right'].set_linewidth(width)
+    ax.set_facecolor((1, 1, 1))
     ax.set_xticks([])
     ax.set_yticks([])
     ax.remove()
